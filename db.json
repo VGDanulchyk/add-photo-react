@@ -1,0 +1,19 @@
+{
+  "images": [
+    {
+      "text": " «Білий Слон».",
+      "img": "/static/media/trekimg.07865116.jpg",
+      "id": 1
+    },
+    {
+      "text": "Чорного Черемоша на сході.",
+      "img": "/static/media/trekimg.07865116.jpg",
+      "id": 2
+    },
+    {
+      "text": "урочище «Заросляк».",
+      "img": "/static/media/trekimg.07865116.jpg",
+      "id": 3
+    }
+  ]
+}
