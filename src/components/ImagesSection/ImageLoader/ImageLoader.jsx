@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import imagesOperations from "../../../redux/Images/imagesOperations";
 import { connect } from 'react-redux';
-// import styles from './TrekEditor.module.scss';
 // import stylesBtn from '../Button/Button.module.scss';
 
 
