@@ -4,6 +4,8 @@ import imagesOperations from "../../redux/Images/imagesOperations";
 import ImagesList from "./ImagesList/ImagesList";
 import ImageLoader from "./ImageLoader/ImageLoader";
 
+import styles from "./ImageSection.module.css"
+
 
 const ImagesSection = props => {
     useEffect(() => {
@@ -12,7 +14,7 @@ const ImagesSection = props => {
 
 
     return (
-        <div>
+        <div className={styles.card}>
             <ImageLoader/>
             <ImagesList/>
         </div>

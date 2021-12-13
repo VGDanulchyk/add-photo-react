@@ -2,22 +2,34 @@ import React from 'react';
 import ReactFileReader from 'react-file-reader';
 import imagesOperations from "../../../redux/Images/imagesOperations";
 import { connect } from 'react-redux';
-import axios from "axios";
+
+import styles from "./ImageLoader.module.css"
+
 
 const ImageLoader = (props) => {
-    const addImage = (data) => {
-        props.onAddImage(data)
+    const addImage = (data, name) => {
+        props.onAddImage(data, name)
     }
 
-    const onLoadFileHandler = (files) => {
-        addImage(files.base64)
+    const onLoadFileHandler = (file) => {
+        const {base64, fileList} = file;
+
+        const fileName = fileList && fileList[0].name
+        addImage(base64, fileName)
     }
 
 
     return (
-        <ReactFileReader fileTypes={[".JPG",".PNG"]} base64={true} handleFiles={onLoadFileHandler}>
-            <button className='btn'>Upload</button>
-        </ReactFileReader>
+        <div className={styles.container}>
+            <ReactFileReader
+                fileTypes={['.png', '.jpg', ',jpeg', '.gif']}
+                base64={true}
+                handleFiles={onLoadFileHandler}
+            >
+                <button className={styles.btn}>Upload an image</button>
+            </ReactFileReader>
+        </div>
+
     )
 }
 

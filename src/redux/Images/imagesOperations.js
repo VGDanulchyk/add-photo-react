@@ -2,12 +2,12 @@ import axios from 'axios';
 import imagesActions from './imagesActions';
 import { apiEndpoint } from '../../envConfig';
 
-const addImage = img =>
+const addImage = (img, fileName) =>
         dispatch => {
             dispatch(imagesActions.addImageRequest());
 
             axios
-                .post(`${apiEndpoint}/images`, { img })
+                .post(`${apiEndpoint}/images`, { img, fileName })
                 .then(response => dispatch(imagesActions.addImageSuccess(response.data)))
                 .catch(error => dispatch(imagesActions.addImageError(error)));
         };

@@ -1,25 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { connect } from 'react-redux';
 import imagesOperations from "../../../../redux/Images/imagesOperations";
 
-const ImageListItem = ({ img, onRemove }) => {
-console.log(img)
-    return (
-        <li /*className={styles.wrapper}*/>
-            <div /*className={styles.btnWrapper}*/>
-                <div /*className={styles.itemBtnContainer}*/>
-                    <button /*className={styles.itemBtn}*/ type="button" onClick={onRemove}>
-                        X
-                    </button>
-                </div>
-            </div>
+import styles from "./ImageListItem.module.css"
 
-            <div>
-                <div>
-                    <div>
-                        <img src={img} alt="Image" />
-                    </div>
+const ImageListItem = ({ img, onRemove, id, fileName }) => {
+    const [addStrikeLine, setStrikeLine] = useState(false)
+    const onDeleteHandler = () => {
+        setStrikeLine(true)
+        setTimeout(() => {
+            onRemove(id)
+        }, 1500)
+
+    }
+
+
+    return (
+        <li >
+            <div className={styles.previewImage}>
+                <div onClick={onDeleteHandler}
+                     className={styles.previewRemove}
+                >&times;
                 </div>
+                <img src={img} alt="Image" />
+                    <h3 className={addStrikeLine ? 'strikeLine' : ''}>
+                        {fileName}
+                    </h3>
             </div>
         </li>
     );
@@ -33,8 +39,8 @@ const mapStateToProps = (state, ownProps) => {
     };
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-    onRemove: () => dispatch(imagesOperations.removeImage(ownProps.id)),
-});
+const mapDispatchToProps = {
+    onRemove: imagesOperations.removeImage,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ImageListItem);
