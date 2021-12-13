@@ -9,11 +9,10 @@ const ImagesSection = props => {
     useEffect(() => {
         props.getImages();
     }, []);
-    
-    
+
+
     return (
         <div>
-            {/*<input type="file"/>*/}
             <ImageLoader/>
             <ImagesList/>
         </div>

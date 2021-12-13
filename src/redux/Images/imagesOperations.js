@@ -1,15 +1,13 @@
 import axios from 'axios';
 import imagesActions from './imagesActions';
-import trekImg from '../../img/trekimg.jpg';
 import { apiEndpoint } from '../../envConfig';
 
-const addImage =
-    ({ text }) =>
+const addImage = img =>
         dispatch => {
             dispatch(imagesActions.addImageRequest());
 
             axios
-                .post(`${apiEndpoint}/images`, { text, img:trekImg })
+                .post(`${apiEndpoint}/images`, { img })
                 .then(response => dispatch(imagesActions.addImageSuccess(response.data)))
                 .catch(error => dispatch(imagesActions.addImageError(error)));
         };

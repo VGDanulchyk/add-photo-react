@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import imagesOperations from "../../../../redux/Images/imagesOperations";
 
-const ImageListItem = ({ text, img, onRemove }) => {
+const ImageListItem = ({ img, onRemove }) => {
+console.log(img)
     return (
         <li /*className={styles.wrapper}*/>
             <div /*className={styles.btnWrapper}*/>
@@ -17,9 +18,6 @@ const ImageListItem = ({ text, img, onRemove }) => {
                 <div>
                     <div>
                         <img src={img} alt="Image" />
-                    </div>
-                    <div>
-                        <p>{text}</p>
                     </div>
                 </div>
             </div>
