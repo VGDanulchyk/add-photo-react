@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background: #666;
   font-family: 'Lato', sans-serif;
@@ -13,4 +18,5 @@ body {
 .strikeLine {
   text-decoration: line-through 3px red;
 }
+
 

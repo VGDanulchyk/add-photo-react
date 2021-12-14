@@ -20,12 +20,13 @@ const ImageListItem = ({ img, onRemove, id, fileName }) => {
             <div className={styles.previewImage}>
                 <div onClick={onDeleteHandler}
                      className={styles.previewRemove}
-                >&times;
+                >
+                    &times;
                 </div>
                 <img src={img} alt="Image" />
-                    <h3 className={addStrikeLine ? 'strikeLine' : ''}>
-                        {fileName}
-                    </h3>
+                <h3 className={addStrikeLine ? 'strikeLine' : ''}>
+                    {fileName}
+                </h3>
             </div>
         </li>
     );
